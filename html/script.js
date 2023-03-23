@@ -182,7 +182,10 @@ function autoplay() {
     if (true/* TttLeaf.whosTurn == 1 */) {
         TttLeaf.actives[Math.floor(Math.random() * (TttLeaf.actives.length))].click();
     }
-    setTimeout(autoplay, 1);
+    setTimeout(autoplay, 10);
 }
 
-/*setTimeout(autoplay, 5000);*/
+function startAutoplay() {
+    document.getElementById("autoplay").remove();
+    setTimeout(autoplay, 10);
+} 

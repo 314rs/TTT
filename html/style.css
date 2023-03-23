@@ -1,9 +1,16 @@
+:root {
+    --ciblue: #0076ff;
+    --ciorange: #ff6700;
+    --button-base: var(--ciblue);
+    --button-hover: var(--ciorange);
+}
+
 body {
-    margin-top: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    margin: 0px auto;
 }
 
 
@@ -34,12 +41,15 @@ ttt-leaf[active] {
 }
 
 
-
+ttt-node {
+    border: 0;
+}
 
 /* grid lines */
 ttt-node > * {
     border-top: 1px solid #444444;
     border-left: 1px solid #444444;
+
 }
 
 ttt-node > *:nth-child(3n-2) {
@@ -94,3 +104,12 @@ ttt-node[p="2"]:not([rootnode])::after {
     opacity: 50%;
 }
 /* end markers */
+
+
+
+#autoplay {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    color: white;
+}
