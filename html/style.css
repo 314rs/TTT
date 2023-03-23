@@ -12,7 +12,7 @@ body {
     height: 100vh;
     margin: 0px auto;
     min-height: min-content;
-    min-width: min-content;
+    min-width: max-content;
 }
 
 
