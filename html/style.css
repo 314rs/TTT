@@ -16,7 +16,7 @@ body {
 }
 
 
-ttt-node {
+ttt-node, ttt-game {
     display: grid;
     position: relative;
     grid-template-columns: repeat(3, max-content);
@@ -25,7 +25,7 @@ ttt-node {
     padding: 6px;
 }
 
-ttt-leaf[active] {
+ttt-node[depth="0"][active] {
     animation-name: activeFade;
     animation-duration: 1s;
     animation-iteration-count: infinite;
@@ -48,29 +48,32 @@ ttt-node {
 }
 
 /* grid lines */
-ttt-node > * {
+ttt-node {
     border-top: 1px solid #444444;
     border-left: 1px solid #444444;
-
+}
+ttt-node[depth="0"] {
+    border-top-width: 1px !important;
+    border-left-width: 1px!important;
 }
 
-ttt-node > *:nth-child(3n-2) {
-    border-left: none;
+ttt-node:nth-child(3n-2) {
+    border-left: none !important;
 }
-ttt-node > *:nth-child(-n+3) {
-    border-top: none;
+ttt-node:nth-child(-n+3) {
+    border-top: none !important;
 }
 /* end grid lines */
 
 
-ttt-leaf {
+ttt-node[depth="0"] {
     width: 20px;
     height: 20px;
 }
 
 
 /* markers */
-ttt-leaf[p]::after {
+ttt-node[depth="0"][p]::after {
     content: "";
     display: block;
     margin:5% 5%;
@@ -79,10 +82,10 @@ ttt-leaf[p]::after {
     height: 90%;
 }
 
-ttt-leaf[p="1"]::after {
+ttt-node[depth="0"][p="1"]::after {
     background-color: #0076ff;    
 }
-ttt-leaf[p="2"]::after {
+ttt-node[depth="0"][p="2"]::after {
     background-color: #ff6700;    
 }
 
@@ -93,6 +96,8 @@ ttt-node[p]::after {
     border-radius: 10%;
     width: 100%;
     height: 100%;
+}
+ttt-node[p]:not([depth="0"])::after {
     opacity: 50%;    
 }
 
@@ -102,7 +107,7 @@ ttt-node[p="1"]:not([rootnode])::after {
 ttt-node[p="2"]:not([rootnode])::after {
     background-color: #ff6700;
 }
-:not([rootnode])[full]:not([p]) > *{
+[full]:not([p]) > *{
     opacity: 50%;
 }
 /* end markers */
