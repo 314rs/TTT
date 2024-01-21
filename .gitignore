@@ -1,3 +1,9 @@
 *.txt
+!CMakelists.txt
+!conanfile.txt
 *.hs
 *.png
+*test.py
+build/
+conan/
+CMakeFiles/
