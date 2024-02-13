@@ -2,8 +2,14 @@
 !CMakelists.txt
 !conanfile.txt
 *.hs
+*.py
+*.db
+*.sql
+*.ttt
 *.png
 *test.py
-build/
-conan/
-CMakeFiles/
+[Bb]uild/*
+[Dd]ocs/*
+CMakeCache.*
+CMakeFiles/*
+[Tt]esting/*
